@@ -1,43 +1,22 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-# <DeviceShare>
+# DeviceShare
 
 ## サイト概要
 ### サイトテーマ
-<パソコンの周辺機器のレビューサイト>
+パソコンの周辺機器のレビューサイト
 
 ### テーマを選んだ理由
-<パソコンの周辺機器を紹介しているサイトはブログぐらいしか無く多数の人のレビューをとり入れたいため>
+パソコンの周辺機器を紹介しているサイトはブログぐらいしか無く多数の人のレビューを取り入れられるサイトを作りたいと思ったから。
+最近では在宅ワークが増えていたり、PCゲームをやる人が多くなっていて、パソコンの周辺機器の需要も増えていると思ったから。
 
 ### ターゲットユーザ
-<パソコンの周辺機器に興味のある方>
+- PCの周辺機器に興味がある方
+- PCの周辺機器の購入を考えてる方
+
 
 ### 主な利用シーン
-パソコンの周辺機器を購入する際にレビューしている人の意見を参考にして購入できる
+- PCの周辺機器について知りたい時
+- PCの周辺機器で何を買うか悩んでいる時
+- PCの周辺機器を紹介したい時
 
 ## 設計書
 
@@ -50,3 +29,4 @@ Things you may want to cover:
 - IDE：Cloud9
 
 ## 使用素材
+ 使用検討中です
