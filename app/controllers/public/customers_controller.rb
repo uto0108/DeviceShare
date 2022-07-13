@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   def show
-      @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def edit
@@ -13,13 +13,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-         @customer = Customer.find(params[:id])
-     @customer.update(public_customer_params)
-     if @customer.save
+    @customer = Customer.find(params[:id])
+    @customer.update(public_customer_params)
+    if @customer.save
       redirect_to public_customer_path(), notice: "You have updated user successfully."
-     else
+    else
       render "edit"
-     end
+    end
   end
 
   def withdraw

@@ -34,8 +34,8 @@
           </li>
         <% elsif admin_signed_in? %>
           <li>
-            <%=  link_to admin_items_path,class: 'nav-link text-light' do %>
-              商品一覧
+            <%=  link_to admin_posts_path,class: 'nav-link text-light' do %>
+              投稿一覧
             <% end %>
           </li>
             <li>
@@ -44,13 +44,8 @@
             <% end %>
           </li>
            <li>
-            <%=  link_to admin_orders_path,class: 'nav-link text-light' do %>
-              注文履歴一覧
-            <% end %>
-          </li>
-           <li>
-            <%=  link_to admin_genres_path,class: 'nav-link text-light' do %>
-              ジャンル一覧
+            <%=  link_to admin_categories_path,class: 'nav-link text-light' do %>
+              カテゴリ一覧
             <% end %>
           </li>
            <li>

@@ -1,0 +1,27 @@
+<table class = "table">
+  <thead>
+    <tr>
+      <th>ユーザーID</th>
+      <th>ユーザー画像</th>
+      <th>ユーザー名</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.id %></td>
+        <td>
+          <%= link_to admin_customer_path(customer.id), class:"black" do %>
+            <%= image_tag customer.get_profile_image(50, 50) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admin_customer_path(customer.id), class:"black" do %>
+            <%= customer.name %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
