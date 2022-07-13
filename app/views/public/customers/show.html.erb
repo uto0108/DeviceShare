@@ -1,0 +1,20 @@
+<div class = "customer-show">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>ユーザー画像</th>
+        <th class = "show-name"><%= image_tag @customer.get_profile_image(200, 200) %></th>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <th class = "show-name"><%= @customer.name %></th>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <th class = "show-name"><%= @customer.email %></th>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "ユーザー情報編集", edit_public_customer_path, class:"btn btn-primary" %>
+
+</div>
