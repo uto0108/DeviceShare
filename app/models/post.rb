@@ -1,6 +1,10 @@
 class Post < ApplicationRecord
   has_one_attached :post_image
 
+  belongs_to :category
+  belongs_to :customer
+  has_many :comments, dependent: :destroy
+
   def get_post_image(width, height)
     unless post_image.attached?
         file_path = Rails.root.join('app/assets/images/no-image.jpg')

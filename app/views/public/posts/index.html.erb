@@ -4,6 +4,15 @@
         <h2 style="display:inline">商品一覧 </h2> <p style="display:inline">(全<%= @posts.count %>件)</p>
     </div>
   </div>
+  <%= form_tag public_posts_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :category_id,
+                     options_from_collection_for_select(Category.all, :id, :category, params[:category_id]),
+                     {
+                       prompt: 'タグで絞り込み検索',
+                       onchange: 'submit(this.form);'
+                     }
+      %>
+    <% end %>
 
   <div class = "row">
     <% @posts.each do |post| %>

@@ -18,14 +18,17 @@ Rails.application.routes.draw do
   namespace :public do
     get 'customers/confirm'
     resources :customers, only: [:show, :edit, :update] do
+      resource :relationships, only: [:destroy, :create]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
       collection do
       patch :withdraw
       end
     end
-    resources :relationships, only: [:destroy, :create]
 
-    resources :posts, only: [:show, :new, :index, :edit, :update, :create, :destroy]
-    resources :comments, only: [:create]
+    resources :posts, only: [:show, :new, :index, :edit, :update, :create, :destroy]do
+      resources :comments,only: [:create, :destroy]
+    end
   end
 
 

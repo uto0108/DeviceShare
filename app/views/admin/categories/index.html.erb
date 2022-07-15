@@ -1,2 +1,46 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2>カテゴリ一覧・追加</h2>
+      <%= form_with model: @category, url: admin_categories_path, method: :post do |f| %>
+        <div class = "row">
+          <div class = "col-3">
+            <div class="form-group">
+              <label for="postal_code">カテゴリ名</label>
+            </div>
+          </div>
+          <div class = "col-5">
+            <div class="form-group">
+              <%= f.text_field :category, class:"form-control name" %>
+            </div>
+          </div>
+            <div class = "col-2">
+              <div class="form-group">
+                <%= f.submit '新規登録', class:"btn btn-success" %>
+              </div>
+            </div>
+        </div>
+      <% end %>
+
+      <table class='table none'>
+        <thead>
+          <tr class ="none">
+            <th class = "none category">　カテゴリ</th>
+            <th class = "none category"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr class ="none">
+            <td class ="none"><%= category.category %></td>
+            <td class ="none">
+              <%= link_to "編集する", edit_admin_category_path(category.id), class: "btn btn-sm btn-success" %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

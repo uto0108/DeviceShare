@@ -11,6 +11,10 @@
     <label for="item_introduction">本文</label>
     <%= f.text_area :body, class:"form-control name" %>
   </div>
+  <div>
+    <label for="item_price">ジャンル</label>
+    <%= f.collection_select :category_id, Category.all, :id, :category, include_blank: "選択して下さい" %>
+  </div>
   <div class="item-edit-btn">
     <%= f.submit '新規登録', class:"btn btn-success" %>
   </div>
