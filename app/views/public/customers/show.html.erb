@@ -33,6 +33,8 @@
           </th>
         </tr>
 
+        
+
       <% else %>
         <% if current_customer.following?(@customer) %>
           <%= link_to "フォロー外す", public_customer_relationships_path(@customer), method: :delete %>

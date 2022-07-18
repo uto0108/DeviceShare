@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
 
   namespace :public do
+    get "search" => "searches#search"
+    get "searches/search"
     get 'customers/confirm'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:destroy, :create]
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
 
     resources :posts, only: [:show, :new, :index, :edit, :update, :create, :destroy]do
       resources :comments,only: [:create, :destroy]
+      resource :likes, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
   end
 

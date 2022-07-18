@@ -17,6 +17,27 @@
       <h4><%= @post.body %></h4>
     </div>
 
+    <% if @post.liked_by?(current_customer) %>
+      <p>
+        <%= link_to public_post_likes_path(@post), method: :delete do %>
+          <h3><i class="fa-solid fa-heart red"></i><%= @post.likes.count %></h3>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to public_post_likes_path(@post), method: :post do %>
+          <h3><i class="fa-regular fa-heart red"></i><%= @post.likes.count %></h3>
+        <% end %>
+      </p>
+    <% end %>
+
+
+
+    <div class='star-btn' id="favorite_<%= @post.id %>">
+      <%= render "public/favorites/favorite", post: @post %>
+    </div>
+
+
     <div>
       <p>コメント件数：<%= @post.comments.count %></p>
       <% @post.comments.each do |comment| %>
@@ -25,6 +46,22 @@
         <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
       <% end %>
     </div>
+
+    <td>
+      <div id="star-rate<%= @post.id%>"></td>
+       <script>
+        $('#star-rate<%= @post.id %>').empty();
+        $('#star-rate<%= @post.id%>').raty({
+           size      : 36,
+           starOff   : '<%= asset_path('star-off.png') %>',
+           starOn    : '<%= asset_path('star-on.png') %>',
+           half      : false,
+           readOnly: true,
+           score: <%= @post.star %>,
+         });
+       </script>
+    </td>
+
     <div>
       <%= form_with model: [@post,@comment], url: public_post_comments_path(@post), method: :post do |f| %>
         <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>

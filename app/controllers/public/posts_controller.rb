@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
     @comments = @post.comments.includes(:customer)
   end
 
- def create
+  def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     if @post.save
@@ -23,9 +23,9 @@ class Public::PostsController < ApplicationController
     end
   end
 
+
   private
   def post_params
     params.require(:post).permit(:title, :body, :post_image, :star, :customer_id, :category_id)
   end
-
 end
