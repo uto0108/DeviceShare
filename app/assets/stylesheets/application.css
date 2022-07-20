@@ -16,3 +16,47 @@
 .red{
   color: #FF0000;
 }
+
+
+.header-btn{
+  text-align: center;
+}
+
+.center{
+  text-align: center;
+}
+
+.head-color{
+  background-color: #00CCCC;
+}
+
+.white{
+  color: #FFFFFF;
+}
+
+.head-title{
+  padding: 0px 70px;
+}
+
+.nav-list{
+  padding: 0px 70px;
+}
+
+.login-text{
+  margin: 50px 0px 0px 0px;
+  text-align: center;
+}
+
+.login-link{
+  text-align: center;
+}
+
+.login-actions{
+  margin: 50px 0px 0px 0px;
+}
+
+.index-card{
+    width: 200px;
+    margin: 20px;
+}
+
