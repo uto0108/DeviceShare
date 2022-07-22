@@ -1,2 +1,86 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-offset-3"></div>
+    <div class="col-sm-6">
+      <h2>投稿内容</h2>
+      <table class="table">
+          <tbody>
+            <tr>
+              <th>投稿ユーザー画像</th>
+              <th class = "show-name"><%= image_tag @post.customer.get_profile_image(50, 50) %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>ユーザー名</th>
+              <th class = "show-name"><%= @post.customer.name %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>投稿タイトル</th>
+              <th class = "show-name"><%= @post.title %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>投稿画像</th>
+              <th class = "show-name"><%= image_tag @post.get_post_image(50, 50), class: "post-image"; %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>投稿本文</th>
+              <th class = "show-name"><%= @post.body %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>カテゴリ</th>
+              <th class = "show-name"><%= @post.category.category %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>レビュー</th>
+              <th class = "show-name">
+                <div id="star-rate<%= @post.id%>"></div>
+                  <script>
+                    $('#star-rate<%= @post.id %>').empty();
+                    $('#star-rate<%= @post.id%>').raty({
+                       size      : 36,
+                       starOff   : '<%= asset_path('star-off.png') %>',
+                       starOn    : '<%= asset_path('star-on.png') %>',
+                       half      : false,
+                       readOnly: true,
+                       score: <%= @post.star %>,
+                     });
+                  </script>
+              </th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>いいね数</th>
+              <th class = "show-name"><%= @post.likes.count %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>コメント件数</th>
+              <th class = "show-name"><%= @post.comments.count %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>投稿削除</th>
+              <th class = "show-name"><%= link_to "Destroy", admin_post_path(@post.id), method: :delete, class: "btn btn-danger"; %></th>
+              <th></th>
+            </tr>
+          </tbody>
+        </table>
+      <div>
+        <% @post.comments.each do |comment| %>
+          <h4><%= image_tag comment.customer.get_profile_image(50, 50) %><%= comment.customer.name %><span style='font-size : 12px;'><%= comment.created_at.strftime('%Y/%m/%d') %></span></h4>
+          <h4>
+            <%= comment.comment %>
+            <span>
+                <%= link_to "Destroy", admin_post_comment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+            </span>
+          </h4>
+        <% end %>
+      </div>
+
+    </div>
+  </div>

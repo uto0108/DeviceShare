@@ -1,82 +1,97 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-blue head-color">
+  <div class= "container">
+    <nav class="navbar navbar-expand-lg navbar-blue head-color">
 
-      <a class="navbar-brand head-title" href="/"><span><img src="/assets/title.png" alt=""></span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars white"></i>
-      </button>
-      <div class="collapse navbar-collapse nav-list" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+        <a class="navbar-brand head-title" href="/"><span><img src="/assets/title.png" alt=""></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars white"></i>
+        </button>
+        <div class="collapse navbar-collapse nav-list" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
 
 
 
-          <% if customer_signed_in? %>
-            <li>
-              <%= form_tag public_posts_path, method: :get, class: 'boards__searchForm classic select' do %>
-                <%= select_tag :category_id,
-                 options_from_collection_for_select(Category.all, :id, :category, params[:category_id]),
-                 {
-                   prompt: 'タグで絞り込み検索',
-                   onchange: 'submit(this.form);'
-                 }
-                %>
-              <% end %>
-            </li>
-            <li>
-              <%= render 'public/searches/search' %>
-            </li>
-            <li>
-              <%=  link_to public_posts_path,class: 'nav-link text-light' do %>
-                投稿一覧
-              <% end %>
-            </li>
-            <li>
-              <% if current_customer.name != "guestuser" %>
-                  <%= link_to public_customer_path(current_customer),class: 'nav-link text-light' do %>
-                    マイページ
+            <% if customer_signed_in? %>
+              <div class="dropdown nav-link">
+                <a class="nav-link text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  検索
+                </a>
+                <div class="dropdown-menu dropdown-menu1" aria-labelledby="dropdownMenuLink">
+                  <li class="nav-link">
+                    <%= form_tag public_posts_path, method: :get, class: 'boards__searchForm classic select nav-link' do %>
+                      <%= select_tag :category_id,
+                       options_from_collection_for_select(Category.all, :id, :category, params[:category_id]),
+                       {
+                         prompt: 'タグで絞り込み検索',
+                         onchange: 'submit(this.form);'
+                       }
+                      %>
+                    <% end %>
+                  </li>
+                  <%= render 'public/searches/search' %>
+                </div>
+              </div>
+
+              <div class="dropdown nav-link">
+                <a class="nav-link text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if customer_signed_in? %>
+                    投稿
                   <% end %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
-                 ログアウト
-              <% end %>
-            </li>
-          <% elsif admin_signed_in? %>
-            <li>
-              <%=  link_to admin_posts_path,class: 'nav-link text-light' do %>
-                投稿一覧
-              <% end %>
-            </li>
-            <li>
-              <%=  link_to admin_customers_path,class: 'nav-link text-light' do %>
-                会員一覧
-              <% end %>
-            </li>
-            <li>
-              <%=  link_to admin_categories_path,class: 'nav-link text-light' do %>
-                カテゴリ一覧
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
-              ログアウト
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to new_customer_registration_path ,class: 'nav-link text-light' do %>
-                新規登録
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
-                ログイン
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <%=  link_to "新規投稿", new_public_post_path,class: 'dropdown-item' %>
+                  <%=  link_to "投稿一覧", public_posts_path,class: 'dropdown-item' %>
+                </div>
+              </div>
 
-  </nav>
+
+              <div class="dropdown nav-link">
+
+                <a class="nav-link text-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if customer_signed_in? %>
+                    ようこそ<%= current_customer.name %>さん
+                  <% end %>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <% if current_customer.name != "guestuser" %>
+                    <%= link_to "マイページ", public_customer_path(current_customer),class: "dropdown-item" %>
+                  <% end %>
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'dropdown-item' %>
+                </div>
+              </div>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%=  link_to admin_posts_path,class: 'nav-link text-light' do %>
+                  投稿一覧
+                <% end %>
+              </li>
+              <li>
+                <%=  link_to admin_customers_path,class: 'nav-link text-light' do %>
+                  会員一覧
+                <% end %>
+              </li>
+              <li>
+                <%=  link_to admin_categories_path,class: 'nav-link text-light' do %>
+                  カテゴリ一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+                ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録", new_customer_registration_path ,class: 'nav-link text-light' %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-light' %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+
+    </nav>
+  </div>
 </header>

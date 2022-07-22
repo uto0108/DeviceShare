@@ -1,51 +1,50 @@
-<div class = "customer-show">
-  <table class="table">
-    <tbody>
-      <tr>
-        <th>ユーザー画像</th>
-        <th class = "show-name"><%= image_tag @customer.get_profile_image(200, 200) %></th>
-      </tr>
-      <tr>
-        <th>氏名</th>
-        <th class = "show-name"><%= @customer.name %></th>
-      </tr>
-      <% if @customer.id == current_customer.id %>
-        <tr>
-          <th>メールアドレス</th>
-          <th class = "show-name"><%= @customer.email %></th>
-        </tr>
-        <tr>
-          <th>フォロー数</th>
-          <th class = "show-name"><%= @customer.followings.count %></th>
-        </tr>
-        <tr>
-          <th>フォロワー数</th>
-          <th class = "show-name"><%= @customer.followers.count %></th>
-        </tr>
-        <tr>
-          <th class = "show-name">
-            <%= link_to "フォローユーザー", public_customer_followings_path(@customer) %>
-          </th>
-        </tr>
-        <tr>
-          <th class = "show-name">
-            <%= link_to "フォロワーユーザー", public_customer_followers_path(@customer) %>
-          </th>
-        </tr>
-
-        
-
-      <% else %>
-        <% if current_customer.following?(@customer) %>
-          <%= link_to "フォロー外す", public_customer_relationships_path(@customer), method: :delete %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-offset-3"></div>
+    <div class="col-md-6">
+      <div class = "customer-show">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>ユーザー画像</th>
+              <th class = "show-name"><%= image_tag @customer.get_profile_image(200, 200) %></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <th class = "show-name"><%= @customer.name %></th>
+              <th></th>
+            </tr>
+            <% if @customer.id == current_customer.id %>
+              <tr>
+                <th>メールアドレス</th>
+                <th class = "show-name"><%= @customer.email %></th>
+                <th></th>
+              </tr>
+              <tr>
+                <th>フォロー数</th>
+                <th class = "show-name"><%= @customer.followings.count %></th>
+                <th><%= link_to "Show", public_customer_followings_path(@customer), class: "btn btn-success" %> </th>
+              </tr>
+              <tr>
+                <th>フォロワー数</th>
+                <th class = "show-name"><%= @customer.followers.count %></th>
+                <th><%= link_to "Show", public_customer_followers_path(@customer), class: "btn btn-success" %></th>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% if @customer.id == current_customer.id %>
+          <%= link_to "お気に入り一覧", public_post_favorite_path(@posts), class:"btn btn-primary" %>
+          <%= link_to "ユーザー情報編集", edit_public_customer_path, class:"btn btn-primary" %>
         <% else %>
-          <%= link_to "フォローする", public_customer_relationships_path(@customer), method: :post %>
+          <% if current_customer.following?(@customer) %>
+            <%= link_to "フォロー外す", public_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary"  %>
+          <% else %>
+            <%= link_to "フォローする", public_customer_relationships_path(@customer), method: :post, class: "btn btn-primary" %>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-  <% if @customer.id == current_customer.id %>
-    <%= link_to "ユーザー情報編集", edit_public_customer_path, class:"btn btn-primary" %>
-  <% end %>
-
+      </div>
+    </div>
+  </div>
 </div>

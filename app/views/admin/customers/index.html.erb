@@ -1,27 +1,35 @@
-<table class = "table">
-  <thead>
-    <tr>
-      <th>ユーザーID</th>
-      <th>ユーザー画像</th>
-      <th>ユーザー名</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.id %></td>
-        <td>
-          <%= link_to admin_customer_path(customer.id), class:"black" do %>
-            <%= image_tag customer.get_profile_image(50, 50) %>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-sm-2"></div>
+    <div class = "col-sm-7">
+      <h2>ユーザー一覧</h2>
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー画像</th>
+            <th>ユーザー名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td>
+                <%= link_to admin_customer_path(customer.id), class:"black" do %>
+                  <%= image_tag customer.get_profile_image(50, 50) %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to admin_customer_path(customer.id), class:"black" do %>
+                  <%= customer.name %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-        </td>
-        <td>
-          <%= link_to admin_customer_path(customer.id), class:"black" do %>
-            <%= customer.name %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
 
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

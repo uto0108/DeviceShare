@@ -5,7 +5,13 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :favorites
+  has_many :liked_customers, through: :likes, source: :customer
+  has_many :favorites, dependent: :destroy
+  validates :title, presence: true
+  validates :body, presence: true
+  validates :star, presence: true
+  validates :post_image, presence: true
+
 
   def get_post_image(width, height)
     unless post_image.attached?

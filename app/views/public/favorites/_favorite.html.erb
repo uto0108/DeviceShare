@@ -1,11 +1,18 @@
 <% if !Favorite.exists?(customer_id: current_customer.id, post_id: post.id) %>
   <%= link_to public_post_favorites_path(post.id), method: :post, remote: true, class:"like-btn" do %>
-    <i class="fa-regular fa-star"></i>
+    <div class="balloonoya">
+      <h3 class="fa-regular fa-star star-color"></h3>
+      <span class="balloon balloon1">お気に入り登録</span>
+    </div>
   <% end %>
-  <span class="star-count1"><%= post.favorites.count %></span>
+  <h3><span class="star-count1"></span></h3>
 <% else %>
-  <%= link_to public_post_favorites_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true, class:"like-btn" do %>
-   <i class="fas fa-star star-icon2"></i>
+  <%= link_to public_post_favorite_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true, class:"like-btn" do %>
+    <div class="balloonoya">
+      <h3 class="fa-solid fa-star star-color"></h3>
+      <span class="balloon balloon3">お気に入り登録解除</span>
+    </div>
+
   <% end %>
-  <span class="star-count2"><%= post.favorites.count %></span>
 <% end %>
+

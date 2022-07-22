@@ -13,20 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+main{
+    padding: 30px 20px 10px 20px;
+}
+
+
 .red{
   color: #FF0000;
 }
 
 
 .header-btn{
-  text-align: center;
+  padding: 7px 30px 7px 10px;
+  margin: 0px 0px 5px 0px;
 }
 
 .center{
   text-align: center;
 }
 
-.head-color{
+header{
   background-color: #00CCCC;
 }
 
@@ -35,11 +48,11 @@
 }
 
 .head-title{
-  padding: 0px 70px;
+  padding: 0px 0px 0px 70px;
 }
 
 .nav-list{
-  padding: 0px 70px;
+  padding: 0px 70px 0px 0px;
 }
 
 .login-text{
@@ -59,4 +72,156 @@
     width: 200px;
     margin: 20px;
 }
+
+.searth{
+  margin: 0px 30px　0px 10px;
+}
+
+.star-color{
+  color: #FFD700;
+}
+
+.black{
+  color: black;
+}
+
+.fav{
+  display: flex;
+  margin: 30px 0px 30px 20px;
+}
+.star-btn{
+  padding: 7px 0px 0px 20px;
+}
+
+.search_form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-form{
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  padding: 7px 30px 7px 10px;
+  background-color: #bddfff;
+}
+
+.top-text{
+  margin: 0px 0px 60px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.balloonoya {
+  width: 50px;
+  position   : relative;  /* 指定した分だけ相対的に移動 */
+}
+.balloonoya:hover .balloon {
+  display: inline;                /* インライン要素として表示 */
+}
+.balloon1{
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
+  width:110px;                          /* 吹き出し全体の幅 */
+  left : 5%;                           /* 表示位置 */
+  top : 50%;                           /* 表示位置 */
+  margin-top : 12px;                    /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+}
+
+.balloon2{
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
+  width:50px;                          /* 吹き出し全体の幅 */
+  left : 5%;                           /* 表示位置 */
+  top : 50%;                           /* 表示位置 */
+  margin-top : 12px;                    /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+}
+
+.balloon3{
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 2px;                         /* テキストの前後の余白 */
+  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
+  width:120px;                          /* 吹き出し全体の幅 */
+  left : 5%;                           /* 表示位置 */
+  top : 50%;                           /* 表示位置 */
+  margin-top : 12px;                    /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+}
+
+
+
+.balloon:after{
+  border-bottom: 12px solid rgba(102, 102, 255, 0.50); /* 吹き出し口の高さ・色 */
+  top: -12px;                             /* 吹き出し口の位置調整 */
+  left : 5%;                              /* 吹き出し口の横位置 */
+  content: "";                       /* コンテンツの挿入 */
+  position: absolute;                /* 親要素を基準 */
+}
+
+
+select::-ms-expand {
+	display: none;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin-bottom: 20px;
+	padding: 7px 30px 7px 10px;
+	font-size: 93%;
+	line-height: 1.1em;
+	border-radius: 5px;
+	border: none;
+
+	background-repeat: no-repeat;
+	background-size: 12px 10px;
+	background-position: right 10px center;
+	background-color: #bddfff;
+
+
+
+
+background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+.dropdown-menu1{
+  width: 550px;
+  padding: 8px 0px 8px 20px;
+}
+
+
+
+
+
+
+
+
 

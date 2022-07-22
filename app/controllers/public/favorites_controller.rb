@@ -1,4 +1,9 @@
 class Public::FavoritesController < ApplicationController
+  def show
+    favorites = Favorite.where(customer_id: current_customer.id).order(created_at: :desc).pluck(:post_id)
+    @favorites = Post.find(favorites)
+  end
+
   def create
     @post = Post.find(params[:post_id])
     if @post.customer_id != current_customer.id   # 自分の投稿以外にお気に入り登録が可能

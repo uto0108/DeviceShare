@@ -5,8 +5,8 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.events
-    @bookmark_posts = @customer.bookmark_posts
+    @posts = @customer.posts
+
   end
 
   def edit

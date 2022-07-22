@@ -26,7 +26,9 @@
       <table class='table none'>
         <thead>
           <tr class ="none">
-            <th class = "none category">　カテゴリ</th>
+            <th class = "none category">カテゴリ</th>
+            <th class = "none category"></th>
+            <th class = "none category"></th>
             <th class = "none category"></th>
           </tr>
         </thead>
@@ -36,6 +38,9 @@
             <td class ="none"><%= category.category %></td>
             <td class ="none">
               <%= link_to "編集する", edit_admin_category_path(category.id), class: "btn btn-sm btn-success" %>
+            </td>
+            <td class ="none">
+              <%= link_to "Destroy", admin_category_path(category.id), method: :delete, class: "btn btn-danger" %>
             </td>
           </tr>
         <% end %>

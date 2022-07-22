@@ -5,6 +5,8 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :profile_image
+
+  enum role: {general: 1, special: 2}
   has_many :posts, dependent: :destroy
   has_many :comments ,dependent: :destroy
 
@@ -15,6 +17,7 @@ class Customer < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :favorites
 
   def follow(customer_id)
@@ -55,7 +58,7 @@ class Customer < ApplicationRecord
       @customer = Customer.all
     end
   end
-  
+
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
