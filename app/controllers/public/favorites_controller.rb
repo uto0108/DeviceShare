@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
   def show
     favorites = Favorite.where(customer_id: current_customer.id).order(created_at: :desc).pluck(:post_id)
     @favorites = Post.find(favorites)
