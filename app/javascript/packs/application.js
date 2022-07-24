@@ -13,6 +13,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+import '../stylesheets/application.css'
+
 
 window.$ = window.jQuery = require('jquery');
 require('packs/raty')
