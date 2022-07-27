@@ -21,8 +21,8 @@ Rails.application.routes.draw do
 
 
   namespace :public do
-    get "search" => "searches#search"
     get "searches/search"
+    get "search" => "searches#search"
     get 'customers/confirm'
     resources :customers, only: [:show, :edit, :update] do
       resource :relationships, only: [:destroy, :create]

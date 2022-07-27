@@ -6,6 +6,7 @@ class Public::PostsController < ApplicationController
 
   def index
    @posts = params[:category_id].present? ? Category.find(params[:category_id]).posts : Post.all
+   
   end
 
   def show
