@@ -1,14 +1,15 @@
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <% if customer_signed_in? %>
-      <div class="search_form nav-link">
-        <%= form_with url: public_search_path, local: true, method: :get do |f| %>
-          <%= f.text_field :word, placeholder: "タイトル検索", type: "text", class: "form-control" %>
-          <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-          <%= f.submit "検索", class: "btn btn-primary header-btn" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+<div>
+  <% if customer_signed_in? %>
+    <div class="nav-link">
+      <%= form_with url: public_search_path, id: "form5", local: true, method: :get do |f| %>
+        <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]), id: "sbox6" %>
+        <%= f.text_field :word, placeholder: "キーワードを入力", type: "text", class: "form-control", id: "sbox5" %>
+        <%= f.submit "検索", id: "sbtn5" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
+
+
+
 
