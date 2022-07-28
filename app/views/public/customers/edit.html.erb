@@ -1,50 +1,30 @@
-<%= form_with model:@customer,url:public_customer_path, local:true do |f| %>
-  <div class = "row">
-　　<div class = "col-3">
-      <div class="form-group">
-        <%= f.label :"ユーザー画像" %>
-      </div>
-    </div>
-    <div class = "col-3">
-      <div class="form-group">
-        <%= f.file_field :profile_image, accept: "image/*", class:"form-control-file item_image" %>
-      </div>
-    </div>
-  </div>
-
-  <div class = "row">
-　　<div class = "col-3">
-      <div class="form-group">
-        <%= f.label :"氏名" %>
-      </div>
-    </div>
-    <div class = "col-3">
-      <div class="form-group">
-        <%= f.text_field :name, autofocus: true, autocomplete: "last_name", class:"form-control" %>
-      </div>
-    </div>
-  </div>
-  <div class = "row">
-　　<div class = "col-3">
-      <div class="form-group">
-        <%= f.label :"メールアドレス" %>
-      </div>
-    </div>
-    <div class = "col-3">
-      <div class="form-group">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-md-offset-3"></div>
+    <div class="col-sm-6">
+      <h3>会員情報編集</h3>
+      <%= form_with model:@customer,url:public_customer_path, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :"ユーザー画像" %>
+          <%= f.file_field :profile_image, accept: "image/*", class:"form-control-file item_image" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"氏名" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "last_name", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :"メールアドレス" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+        <div class = "customer-btn">
+          <div class="customer-edit" style="display:inline">
+            <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
+          </div>
+          <div style="display:inline" class= "customer-edit-destroy">
+            <span><%= link_to public_customers_confirm_path(), class: "btn btn-danger confilm_public_customer_#{@customer.id}", data: { confirm: "【確認】アカウントを削除してもよろしいですか？" } do %> 退会する<% end %></span>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
-  <div class = "customer-btn">
-    <div class="customer-edit" style="display:inline">
-      <%= f.submit "編集内容を保存", class: 'btn btn-success' %>
-    </div>
-    <div style="display:inline" class= "customer-edit-destroy">
-      <span><%= link_to public_customers_confirm_path(), class: "btn btn-danger confilm_public_customer_#{@customer.id}" do %> 退会する<% end %></span>
-    </div>
-  </div>
-  </div>
-
-
-<% end %>
+</div>
