@@ -36,3 +36,9 @@ posts=Post.create!(
   ]
 )
 
+comment=Comment.create!(
+  [
+    {comment: 'ソフトも使いやすかった', customer_id: customers[0].id, post_id: posts[3].id},
+    {comment: '持ちやすいです', customer_id: customers[2].id, post_id: posts[0].id}
+  ]
+)
