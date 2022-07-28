@@ -1,17 +1,17 @@
 
       <% if customers.exists? %>
-        <% customers.each do |customer| %>
-          <table class= "table">
-            <thead>
-              <tr>
-                <th>image</th>
-                <th>name</th>
-                <th></th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
+        <table class= "table">
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% customers.each do |customer| %>
               <tr>
                 <td><%= image_tag customer.get_profile_image(50, 50) %></td>
                 <td><%= customer.name %></td>
@@ -19,9 +19,10 @@
                 <td>フォロワー数: <%= customer.followers.count %></td>
                 <td><%= link_to 'Show', public_customer_path(customer.id), class: "btn btn-primary" %></td>
               </tr>
-            </tbody>
-          </table>
-        <% end %>
+            <% end %>
+          </tbody>
+        </table>
+
       <% else %>
           <p>ユーザーはいません</p>
       <% end %>
