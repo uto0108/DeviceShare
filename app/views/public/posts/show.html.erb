@@ -26,10 +26,12 @@
       <br>
       <h4><%= @post.body %></h4>
       <div class = "fav">
-
         <% if  @post.customer ==current_customer  %>
+        <% elsif current_customer.name == "guestuser" %>
         <% else %>
-        <%= render "public/likes/like", post: @post %>
+          <div class='like-btn' id="like_<%= @post.id %>">
+            <%= render "public/likes/like", post: @post %>
+          </div>
           <div class='star-btn' id="favorite_<%= @post.id %>">
             <%= render "public/favorites/favorite", post: @post %>
           </div>
