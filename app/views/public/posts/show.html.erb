@@ -32,7 +32,7 @@
           <div class='like-btn' id="like_<%= @post.id %>">
             <%= render "public/likes/like", post: @post %>
           </div>
-          <div class='like-btn' id="favorite_<%= @post.id %>">
+          <div class='star-btn' id="favorite_<%= @post.id %>">
             <%= render "public/favorites/favorite", post: @post %>
           </div>
         <% end %>

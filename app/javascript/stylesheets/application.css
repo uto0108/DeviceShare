@@ -99,7 +99,7 @@ header{
   padding: 7px 0px 0px 20px;
 }
 .star-btn{
-  padding: 7px 0px 0px 20px;
+  padding: 13px 0px 0px 20px;
 }
 
 
@@ -248,8 +248,8 @@ header{
   position   : absolute;                /* 親要素を基準 */
   display: none;                        /* 要素を非表示 */
   padding: 2px;                         /* テキストの前後の余白 */
-  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
-  width:110px;                          /* 吹き出し全体の幅 */
+  background-color: #15cdab;       /* 背景色（透明度） */
+  width:95px;                          /* 吹き出し全体の幅 */
   left : 5%;                           /* 表示位置 */
   top : 50%;                           /* 表示位置 */
   margin-top : 12px;                    /* 表示位置 */
@@ -260,8 +260,8 @@ header{
   position   : absolute;                /* 親要素を基準 */
   display: none;                        /* 要素を非表示 */
   padding: 2px;                         /* テキストの前後の余白 */
-  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
-  width:50px;                          /* 吹き出し全体の幅 */
+  background-color: #15cdab;       /* 背景色（透明度） */
+  width:45px;                          /* 吹き出し全体の幅 */
   left : 5%;                           /* 表示位置 */
   top : 50%;                           /* 表示位置 */
   margin-top : 12px;                    /* 表示位置 */
@@ -272,7 +272,7 @@ header{
   position   : absolute;                /* 親要素を基準 */
   display: none;                        /* 要素を非表示 */
   padding: 2px;                         /* テキストの前後の余白 */
-  background-color: rgba(102, 102, 255, 0.50);       /* 背景色（透明度） */
+  background-color: #15cdab;       /* 背景色（透明度） */
   width:120px;                          /* 吹き出し全体の幅 */
   left : 5%;                           /* 表示位置 */
   top : 50%;                           /* 表示位置 */
@@ -280,6 +280,17 @@ header{
   font-size: 80%;                       /* 文字サイズ */
 }
 
+.balloon4{
+  position   : absolute;                /* 親要素を基準 */
+  display: none;                        /* 要素を非表示 */
+  padding: 2px;                         /* テキストの前後の余白 */
+  background-color: #15cdab;       /* 背景色（透明度） */
+  width:110px;                          /* 吹き出し全体の幅 */
+  left : 5%;                           /* 表示位置 */
+  top : 50%;                           /* 表示位置 */
+  margin-top : 12px;                    /* 表示位置 */
+  font-size: 80%;                       /* 文字サイズ */
+}
 
 
 .balloon:after{

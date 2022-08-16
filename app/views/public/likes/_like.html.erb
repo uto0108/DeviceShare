@@ -1,19 +1,15 @@
 <% if post.liked_by?(current_customer) %>
-  <p>
-    <%= link_to public_post_likes_path(post.id), method: :delete, remote: true do %>
+  <%= link_to public_post_likes_path(post.id), method: :delete, remote: true do %>
     <div class="balloonoya">
       <h3 class="fa-solid fa-heart red"></h3><span style='font-size : 28px;', class="black"><%= post.likes.count %></span>
-      <span class="balloon balloon1">いいねを取り消す</span>
+      <span class="balloon balloon4">いいねを取り消す</span>
     </div>
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to public_post_likes_path(post.id), method: :post, remote: true do %>
+  <% end %>
+<% else %>
+  <%= link_to public_post_likes_path(post.id), method: :post, remote: true do %>
     <div class="balloonoya">
       <h3 class="fa-regular fa-heart red"></h3><span style='font-size : 28px;', class="black"><%= post.likes.count %></span>
       <span class="balloon balloon2">いいね</span>
     </div>
-    <% end %>
-  </p>
+  <% end %>
 <% end %>
